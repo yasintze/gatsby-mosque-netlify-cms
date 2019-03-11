@@ -75,7 +75,7 @@ export default IndexPage;
 export const query = graphql`
   query IndexQuery {
     posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts/[0-9]+.*--/" } }
+      filter: { fileAbsolutePath: { regex: "//src/pages/blog/" } }
       sort: { fields: [fields___prefix], order: DESC }
     ) {
       edges {
@@ -86,6 +86,7 @@ export const query = graphql`
             prefix
           }
           frontmatter {
+            date
             title
             category
             author
